@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	_ "./pkg1"
+	_ "github.com/learn/init_order/pkg1"
 )
 
 const mainName string = "main"

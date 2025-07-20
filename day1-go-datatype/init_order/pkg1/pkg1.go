@@ -3,7 +3,7 @@ package pkg1
 import (
 	"fmt"
 
-	_ "../pkg2"
+	_ "github.com/learn/init_order/pkg2"
 )
 
 const PkgName string = "pkg1"
