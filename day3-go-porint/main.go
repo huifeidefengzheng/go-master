@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"unsafe"
+)
 
 func main() {
 	var p1 *int
@@ -19,4 +22,20 @@ func main() {
 	fmt.Println(p2)
 	fmt.Println(p2)
 	fmt.Println(**p3)
+
+	var p4 *int
+	i1 := 1
+	p4 = &i1
+	fmt.Println(*p4 == i1)
+	*p4 = 2
+	fmt.Println(i1)
+
+	a := "Hello, world!"
+	fmt.Println(&a)
+	fmt.Println(unsafe.Pointer(&a))
+	upA := uintptr(unsafe.Pointer(&a))
+	upA += 1
+
+	c := (*uint8)(unsafe.Pointer(upA))
+	fmt.Println(*c)
 }
