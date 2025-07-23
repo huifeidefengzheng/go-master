@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-
-	_ "./pkg1"
+	_ "lzs.com/pkg1"
+	
 )
 
 const mainName string = "main"

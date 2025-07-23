@@ -3,7 +3,7 @@ package pkg1
 import (
 	"fmt"
 
-	_ "../pkg2"
+	_ "lzs.com/pkg2"
 )
 
 const PkgName string = "pkg1"
