@@ -6,7 +6,7 @@ package main
     数据结构来解决，例如通过 map 记录每个元素出现的次数，然后再遍历 map 找到出现次数为1的元素。
 */
 func main() {
-	print(singleNumber([]int{4, 1, 2, 1, 2}))
+	print(singleNumber2([]int{4, 1, 2, 1, 2}))
 }
 
 func singleNumber(nums []int) int {
