@@ -27,7 +27,7 @@ func setupRoutes(db *gorm.DB) error {
 		public.GET("/posts/:id", func(c *gin.Context) {
 			GetPost(c, db)
 		})
-		public.GET("/posts/:post_id/comments", func(c *gin.Context) {
+		public.GET("/posts/:id/comments", func(c *gin.Context) {
 			GetComments(c, db)
 		})
 	}
@@ -45,7 +45,7 @@ func setupRoutes(db *gorm.DB) error {
 		protected.DELETE("/posts/:id", func(c *gin.Context) {
 			DeletePost(c, db)
 		})
-		protected.POST("/posts/:post_id/comments", func(c *gin.Context) {
+		protected.POST("/posts/:id/comments", func(c *gin.Context) {
 			CreateComment(c, db)
 		})
 	}

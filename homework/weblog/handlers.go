@@ -26,12 +26,12 @@ func CreatePost(c *gin.Context, db *gorm.DB) {
 	}
 
 	// 获取完整的文章信息（包括用户信息）
-	var createdPost Post
-	db.Preload("User").First(&createdPost, post.ID)
+	//var createdPost Post
+	//db.Preload("User").First(&createdPost, post.ID)
 
 	c.JSON(http.StatusCreated, gin.H{
 		"message": "文章创建成功",
-		"post":    createdPost,
+		"post":    post,
 	})
 }
 
@@ -149,7 +149,7 @@ func DeletePost(c *gin.Context, db *gorm.DB) {
 // CreateComment 创建评论
 func CreateComment(c *gin.Context, db *gorm.DB) {
 	userID := c.MustGet("user_id").(uint)
-	postID, err := strconv.Atoi(c.Param("post_id"))
+	postID, err := strconv.Atoi(c.Param("id"))
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "无效的文章ID"})
 		return
@@ -192,7 +192,7 @@ func CreateComment(c *gin.Context, db *gorm.DB) {
 
 // GetComments 获取某篇文章的所有评论
 func GetComments(c *gin.Context, db *gorm.DB) {
-	postID, err := strconv.Atoi(c.Param("post_id"))
+	postID, err := strconv.Atoi(c.Param("id"))
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "无效的文章ID"})
 		return
